@@ -87,8 +87,11 @@ while run:
         pg.draw.rect(screen,("blue"),(0,0,600,45)) #top score bar
         pg.draw.rect(screen,("red"),(snake_foodx,snake_foody,snake_size,snake_size)) #drawing of food
         #rendering each element in snake body array
-        for i in snake_body:
-            pg.draw.rect(screen,("green"),(i[0],i[1],snake_size,snake_size))
+        for i in range(len(snake_body)):
+            if i == 0:
+                pg.draw.rect(screen,("blue"),(snake_body[i][0],snake_body[i][1],snake_size,snake_size)) #head color blue
+            else:
+                 pg.draw.rect(screen,("green"),(snake_body[i][0],snake_body[i][1],snake_size,snake_size)) #body color green
 
         time.sleep(0.1) #can change speed by changing time sleep
         #incrementing the snake x or y axis for moving 
